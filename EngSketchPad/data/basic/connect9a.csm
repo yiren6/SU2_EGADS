@@ -1,0 +1,104 @@
+# connect9a
+# written by John Dannenhoffer
+
+# size of small "almost-degenerate" faux-chamfers
+CFGPMTR   EPS   0.00001
+
+# section with rounded corners
+MARK
+   SKBEG     -5.0  0.0    2.0
+      LINSEG -5.0  0.0   -2.0
+      LINSEG -5.0  1.0   -2.0
+      CIRARC -5.0  1.7   -1.7 -5.0  2.0  -1.0
+      LINSEG -5.0  2.0    1.0
+      CIRARC -5.0  1.7    1.7 -5.0  1.0   2.0
+      LINSEG -5.0  0.0    2.0
+   SKEND 1
+
+   SKBEG     -3.0  0.0    2.0
+      LINSEG -3.0  0.0   -2.0
+      LINSEG -3.0  1.0   -2.0
+      CIRARC -3.0  1.7   -1.7 -3.0  2.0  -1.0
+      LINSEG -3.0  2.0    1.0
+      CIRARC -3.0  1.7    1.7 -3.0  1.0   2.0
+      LINSEG -3.0  0.0    2.0
+   SKEND 1
+RULE
+
+SELECT    EDGE  $_nface 1
+SELECT    SORT  $xcg
+DIMENSION edgeList1   1  6
+PATBEG    i 6
+   SET    edgeList1[i]  @sellist[i+6]
+PATEND
+
+# section with very small faux-chamfers
+MARK
+   SKBEG     -1.0  0.0    2.0
+      LINSEG -1.0  0.0   -2.0
+      LINSEG -1.0  2-EPS -2.0
+      LINSEG -1.0  2.0   -2+EPS
+      LINSEG -1.0  2.0    2-EPS
+      LINSEG -1.0  2-EPS  2.0
+      LINSEG -1.0  0.0    2.0
+   SKEND 1
+
+   SKBEG      1.0  0.0    2.0
+      LINSEG  1.0  0.0   -2.0
+      LINSEG  1.0  2-EPS -2.0
+      LINSEG  1.0  2.0   -2+EPS
+      LINSEG  1.0  2.0    2-EPS
+      LINSEG  1.0  2-EPS  2.0
+      LINSEG  1.0  0.0    2.0
+   SKEND 1
+RULE
+
+SELECT    EDGE  $_nface 1
+SELECT    SORT  $xcg
+DIMENSION edgeList2   1  6
+PATBEG    i 6
+   SET    edgeList2[i]  @sellist[i]
+PATEND
+
+# make the 6-Edge to 6-Edge connection
+CONNECT   0   0   edgeList1   edgeList2
+
+SELECT    EDGE  $_nface 1
+SELECT    SORT  $xcg
+DIMENSION edgeList3   1  6
+PATBEG    i 6
+   SET    edgeList3[i]  @sellist[i+6]
+PATEND
+
+# chamfered section
+MARK
+   SKBEG      3.0  0.0    2.0
+      LINSEG  3.0  0.0   -2.0
+      LINSEG  3.0  1.0   -2.0
+      LINSEG  3.0  2.0   -1.0
+      LINSEG  3.0  2.0    1.0
+      LINSEG  3.0  1.0    2.0
+      LINSEG  3.0  0.0    2.0
+   SKEND 1
+
+   SKBEG      5.0  0.0    2.0
+      LINSEG  5.0  0.0   -2.0
+      LINSEG  5.0  1.0   -2.0
+      LINSEG  5.0  2.0   -1.0
+      LINSEG  5.0  2.0    1.0
+      LINSEG  5.0  1.0    2.0
+      LINSEG  5.0  0.0    2.0
+   SKEND 1
+RULE
+
+SELECT    EDGE  $_nface 1
+SELECT    SORT  $xcg
+DIMENSION edgeList4   1  6
+PATBEG    i 6
+   SET    edgeList4[i]  @sellist[i]
+PATEND
+
+# make the 6-Edge to 6-Edge connection
+CONNECT   0   0   edgeList3   edgeList4
+
+END

@@ -1,0 +1,240 @@
+
+    This is Delaundo, version 5.4 of 02 April 1997,
+       Welcome to DOMINO Software.
+
+    The following parameters will be used:
+       VERBOSe:
+       3, User.
+       INFILE:
+       delaundoMesh.pts 
+       NODEUSe:
+       F, User.
+       NODECOnstr.:
+       T, User.
+       ASKROW:
+       F, User.
+       ANTICOnnect.:
+       F, User.
+       SPCRATio:
+         1.00, User.
+       DTOLERance:
+       0.6500, User.
+       QTOLERance:
+       0.6500, User.
+       STRETChing:
+       T, User.
+       BTOLERance:
+       2.0000, User.
+       DELTAStar:
+       0.1000
+       MAXASPect ratio:
+          90.
+       MVISROw:
+        30000, User.
+       ISMOOTh:
+         2 User
+       MISOROw:
+        30000, User.
+       FLATSWap:
+       T, User.
+       ANGMAX:
+        120.0
+       MCYCSWap:
+          10 User
+       OUTFILe:
+       ./delaundoMesh.mesh 
+       OUTTYPe:
+       t
+       OUTTYPe:
+       d
+       DOLOGFile:
+       T, User.
+       LOGFILe:
+       ./delaundoMesh.log 
+       ENDDAT: End of the list of control parameters.
+
+    Reading boundary nodes from .pts file.
+       Boundary  1 named  1 type  2 read with   25 vertices.
+          Connected to boundary named  3 at X,Y = -0.25000000E+02 -0.10000000E+02
+          Connected to boundary named  2 at X,Y =  0.25000000E+02 -0.10000000E+02
+       Boundary  2 named  2 type  2 read with   25 vertices.
+          Connected to boundary named  1 at X,Y =  0.25000000E+02 -0.10000000E+02
+          Connected to boundary named  4 at X,Y =  0.25000000E+02  0.10000000E+02
+       Boundary  3 named  4 type  2 read with   25 vertices.
+          Connected to boundary named  2 at X,Y =  0.25000000E+02  0.10000000E+02
+          Connected to boundary named  3 at X,Y = -0.25000000E+02  0.10000000E+02
+       Boundary  4 named  3 type  2 read with   25 vertices.
+          Connected to boundary named  4 at X,Y = -0.25000000E+02  0.10000000E+02
+          Connected to boundary named  1 at X,Y = -0.25000000E+02 -0.10000000E+02
+       Boundary  5 named  5 type  1 read with  100 vertices.
+          Connected to boundary named  6 at X,Y =  0.00000000E+00  0.00000000E+00
+          Connected to boundary named  6 at X,Y =  0.10000000E+01 -0.32182088E-16
+       Boundary  6 named  6 type  1 read with  100 vertices.
+          Connected to boundary named  5 at X,Y =  0.10000000E+01 -0.32182088E-16
+          Connected to boundary named  5 at X,Y =  0.00000000E+00  0.00000000E+00
+
+    Deriving the background mesh.
+       Maximum frontal and non-frontal scales:  0.2480608E-01  0.2083333E+01
+       The inner edge of the viscous cells:
+           No.  wall dist.     cell thk.   loc. stretching
+          1     0.00000000     0.00000000         90.000
+          2     0.00027562     0.00027562         72.271
+          3     0.00089448     0.00061886         58.035
+          4     0.00194077     0.00104629         46.603
+          5     0.00351934     0.00157857         37.423
+          6     0.00576077     0.00224143         30.051
+          7     0.00882765     0.00306688         24.132
+          8     0.01292247     0.00409482         19.378
+          9     0.01829740     0.00537493         15.561
+         10     0.02526644     0.00696904         12.496
+         11     0.03422065     0.00895421         10.034
+         12     0.04564699     0.01142634          8.058
+         13     0.06015188     0.01450489          6.470
+         14     0.07849051     0.01833863          5.196
+         15     0.10160331     0.02311281          4.172
+         16     0.13066143     0.02905811          3.350
+         17     0.16712324     0.03646182          2.691
+         18     0.21280493     0.04568169          2.161
+         19     0.26996815     0.05716323          1.735
+         20     0.34142941     0.07146126          1.393
+         21     0.43069607     0.08926666          1.119
+           46 nodes, numbers    298 through    344
+       in the background grid to form a stretching layer.
+       Maximum(Average) Gradient in the background grid: 0.80777( 0.15859)
+       in cell      5.
+
+    Creating stretched triangles for viscous layers.
+          199 nodes around boundary named  5,row    1.
+           99 nodes around boundary named  5,row    2.
+          100 nodes around boundary named  5,row    3.
+           99 nodes around boundary named  5,row    4.
+          100 nodes around boundary named  5,row    5.
+           99 nodes around boundary named  5,row    6.
+          100 nodes around boundary named  5,row    7.
+           99 nodes around boundary named  5,row    8.
+          100 nodes around boundary named  5,row    9.
+           99 nodes around boundary named  5,row   10.
+          100 nodes around boundary named  5,row   11.
+           99 nodes around boundary named  5,row   12.
+          100 nodes around boundary named  5,row   13.
+           99 nodes around boundary named  5,row   14.
+          100 nodes around boundary named  5,row   15.
+           99 nodes around boundary named  5,row   16.
+           99 nodes around boundary named  5,row   17.
+           97 nodes around boundary named  5,row   18.
+           96 nodes around boundary named  5,row   19.
+           96 nodes around boundary named  5,row   20.
+           96 nodes around boundary named  5,row   21.
+           93 nodes around boundary named  5,row   22.
+           94 nodes around boundary named  5,row   23.
+           92 nodes around boundary named  5,row   24.
+           92 nodes around boundary named  5,row   25.
+           90 nodes around boundary named  5,row   26.
+           89 nodes around boundary named  5,row   27.
+           87 nodes around boundary named  5,row   28.
+           87 nodes around boundary named  5,row   29.
+           85 nodes around boundary named  5,row   30.
+           84 nodes around boundary named  5,row   31.
+           83 nodes around boundary named  5,row   32.
+           80 nodes around boundary named  5,row   33.
+           77 nodes around boundary named  5,row   34.
+           73 nodes around boundary named  5,row   35.
+            2 nodes around boundary named  5,row   36.
+            2 nodes around boundary named  5,row   37.
+           66 nodes around boundary named  5,row   38.
+           65 nodes around boundary named  5,row   39.
+           58 nodes around boundary named  5,row   43.
+           57 nodes around boundary named  5,row   44.
+           51 nodes around boundary named  5,row   45.
+           48 nodes around boundary named  5,row   46.
+           40 nodes around boundary named  5,row   47.
+           38 nodes around boundary named  5,row   48.
+           27 nodes around boundary named  5,row   49.
+           22 nodes around boundary named  5,row   50.
+            1 nodes around boundary named  5,row   51.
+
+    Constructing isotropic nodes:
+          220 tried,    162 new,   4364 total nodes in    1. row.
+          217 tried,    112 new,   4476 total nodes in    2. row.
+          160 tried,    107 new,   4583 total nodes in    3. row.
+          133 tried,     96 new,   4679 total nodes in    4. row.
+          123 tried,     83 new,   4762 total nodes in    5. row.
+          111 tried,     73 new,   4835 total nodes in    6. row.
+          114 tried,     72 new,   4907 total nodes in    7. row.
+          105 tried,     60 new,   4967 total nodes in    8. row.
+           94 tried,     62 new,   5029 total nodes in    9. row.
+           94 tried,     58 new,   5087 total nodes in   10. row.
+           79 tried,     54 new,   5141 total nodes in   11. row.
+           82 tried,     49 new,   5190 total nodes in   12. row.
+           79 tried,     50 new,   5240 total nodes in   13. row.
+           73 tried,     44 new,   5284 total nodes in   14. row.
+           67 tried,     44 new,   5328 total nodes in   15. row.
+           73 tried,     46 new,   5374 total nodes in   16. row.
+           67 tried,     43 new,   5417 total nodes in   17. row.
+           66 tried,     43 new,   5460 total nodes in   18. row.
+           64 tried,     38 new,   5498 total nodes in   19. row.
+           64 tried,     41 new,   5539 total nodes in   20. row.
+           64 tried,     39 new,   5578 total nodes in   21. row.
+           59 tried,     37 new,   5615 total nodes in   22. row.
+           57 tried,     34 new,   5649 total nodes in   23. row.
+           57 tried,     34 new,   5683 total nodes in   24. row.
+           53 tried,     33 new,   5716 total nodes in   25. row.
+           54 tried,     34 new,   5750 total nodes in   26. row.
+           54 tried,     38 new,   5788 total nodes in   27. row.
+           56 tried,     34 new,   5822 total nodes in   28. row.
+           53 tried,     31 new,   5853 total nodes in   29. row.
+           50 tried,     35 new,   5888 total nodes in   30. row.
+           52 tried,     35 new,   5923 total nodes in   31. row.
+           54 tried,     32 new,   5955 total nodes in   32. row.
+           44 tried,     31 new,   5986 total nodes in   33. row.
+           45 tried,     30 new,   6016 total nodes in   34. row.
+           46 tried,     28 new,   6044 total nodes in   35. row.
+           44 tried,     27 new,   6071 total nodes in   36. row.
+           40 tried,     25 new,   6096 total nodes in   37. row.
+           34 tried,     22 new,   6118 total nodes in   38. row.
+           32 tried,     20 new,   6138 total nodes in   39. row.
+           31 tried,     23 new,   6161 total nodes in   40. row.
+           27 tried,     19 new,   6180 total nodes in   41. row.
+           26 tried,     19 new,   6199 total nodes in   42. row.
+           24 tried,     17 new,   6216 total nodes in   43. row.
+           21 tried,     15 new,   6231 total nodes in   44. row.
+           21 tried,     14 new,   6245 total nodes in   45. row.
+           19 tried,     14 new,   6259 total nodes in   46. row.
+           16 tried,     12 new,   6271 total nodes in   47. row.
+           15 tried,     13 new,   6284 total nodes in   48. row.
+           19 tried,     15 new,   6299 total nodes in   49. row.
+           20 tried,     15 new,   6314 total nodes in   50. row.
+           19 tried,     11 new,   6325 total nodes in   51. row.
+           17 tried,     11 new,   6336 total nodes in   52. row.
+           12 tried,      9 new,   6345 total nodes in   53. row.
+           13 tried,      8 new,   6353 total nodes in   54. row.
+            9 tried,      6 new,   6359 total nodes in   55. row.
+            8 tried,      5 new,   6364 total nodes in   56. row.
+            3 tried,      2 new,   6366 total nodes in   57. row.
+
+    Swapping diagonals to reduce angles to less than 120. degrees.
+            4 swaps in      1st sweep.
+            0 swaps in      2nd sweep.
+
+    Grid size:
+       Number of specified boundary nodes:      294
+       Number of background boundary nodes:      46
+       Number of constructed stretched nodes:  3858
+       Number of constructed isotropic nodes:  2164
+       Total number of nodes in the grid:      6316
+       Number of cells:                       12338
+
+    Resources used:
+           0.0 sec to read the input,
+           0.0 sec to triangulate,
+           0.0 sec to preserve  boundaries,
+           0.0 sec to modify the background grid,
+           0.0 sec to construct stretched points,
+           0.0 sec to construct isotropic points,
+           0.1 sec to write the output, thus
+           0.2 sec in total.
+
+    Output written to:
+       ./delaundoMesh.mesh
+
+

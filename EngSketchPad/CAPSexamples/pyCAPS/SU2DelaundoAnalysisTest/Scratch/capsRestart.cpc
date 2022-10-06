@@ -1,0 +1,56 @@
+# /home/aarons/Desktop/ESP1.21/EngSketchPad/CAPSexamples/pyCAPS/SU2DelaundoAnalysisTest/Scratch/capsRestart.cpc written by ocsmSave (v1.21)
+
+# Constant, Design, and Output Parameters:
+DESPMTR   tunnelHeight      20.00000
+DESPMTR   tunnelLength      50.00000
+DESPMTR   extrude3D       1.00000
+CFGPMTR   series    8412.00000
+DESPMTR   chord       1.00000
+CFGPMTR   sharpTE       1.00000
+
+# Global Attributes:
+ATTRIBUTE capsIntent   $CFD
+ATTRIBUTE capsAIM   $fun3dAIM;su2AIM;egadsTessAIM;aflr2AIM;delaundoAIM
+ATTRIBUTE capsMeshLength   1
+
+# Branches:
+BOX       -tunnelLength/2   0   -tunnelHeight/2   tunnelLength   extrude3D   tunnelHeight
+STORE     Tunnel   0   0
+UDPRIM    naca   Series   series   sharpte   sharpTE
+SCALE     chord   0   0   0
+ROTATEX   90   0   0
+EXTRUDE   0   3*extrude3D   0
+TRANSLATE 0   -extrude3D   0
+STORE     Airfoil   0   0
+RESTORE   Tunnel   0
+RESTORE   Airfoil   0
+SUBTRACT  none   1   0
+EXTRACT   2
+SELECT    face   1
+ATTRIBUTE capsGroup   $2DSlice
+ATTRIBUTE capsMesh   $2DSlice
+SELECT    edge   1
+ATTRIBUTE capsGroup   $TunnelWall
+ATTRIBUTE capsMesh   $TunnelWall
+SELECT    edge   2
+ATTRIBUTE capsGroup   $OutFlow
+ATTRIBUTE capsMesh   $OutFlow
+SELECT    edge   3
+ATTRIBUTE capsGroup   $InFlow
+ATTRIBUTE capsMesh   $InFlow
+SELECT    edge   4
+ATTRIBUTE capsGroup   $TunnelWall
+ATTRIBUTE capsMesh   $TunnelWall
+SELECT    edge   5
+ATTRIBUTE capsGroup   $Airfoil
+ATTRIBUTE capsMesh   $Airfoil
+SELECT    edge   6
+ATTRIBUTE capsGroup   $Airfoil
+ATTRIBUTE capsMesh   $Airfoil
+IFTHEN    sharpTE   eq   0   and   0   eq   0
+   SELECT    edge   7
+ATTRIBUTE capsGroup   $AirfoilTE
+ATTRIBUTE capsMesh   $AirfoilTE
+ENDIF
+
+END

@@ -1,0 +1,11 @@
+LIBRARY aflr4AIM
+EXPORTS
+aimInitialize
+aimCleanup
+aimInputs
+aimUpdateState
+aimPreAnalysis
+aimExecute
+aimPostAnalysis
+aimOutputs
+aimCalcOutput

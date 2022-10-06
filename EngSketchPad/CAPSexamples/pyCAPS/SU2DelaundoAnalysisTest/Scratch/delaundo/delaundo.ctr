@@ -1,0 +1,52 @@
+VERBOSe:
+   3
+ALLPARameters:
+   F
+INFILE:
+   delaundoMesh.pts
+INFORMatted:
+   T
+NODEUSe:
+   F
+NODECOnstr.:
+   T
+ANTICOnnect.:
+   F
+SPCRATio:
+   1.000000
+DTOLERance:
+   0.650000
+QTOLERance:
+   0.650000
+STRETChing:
+   T
+BTOLERance:
+   2.000000
+DELTAStar:
+    0.100000
+MAXASPect ratio:
+   90.000000
+MVISROw:
+   30000
+ASKROW:
+   F
+ISMOOTh:
+   2
+MISOROw:
+   30000
+FLATSWap:
+   T
+ANGMAX:
+    120.000000
+MCYCSWap:
+   10
+OUTFILe:
+   ./delaundoMesh.mesh
+OUTTYPe:
+   t
+OUTFORmat:
+   d
+DOLOGFile:
+   T
+LOGFILe:
+   ./delaundoMesh.log
