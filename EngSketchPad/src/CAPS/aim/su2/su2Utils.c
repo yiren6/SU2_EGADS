@@ -735,7 +735,6 @@ static int su2_writeConfig_Deform(void *aimInfo, capsValue *aimInputs,
 
     if(counter == 0) fprintf(fp," NONE");
     fprintf(fp," )\n");
-
     fprintf(fp,"%%\n");
     fprintf(fp,"%% Navier-Stokes (no-slip), isothermal wall marker(s) (NONE = no marker)\n");
     fprintf(fp,"%% Format: ( marker name, constant wall temperature (K), ... )\n");

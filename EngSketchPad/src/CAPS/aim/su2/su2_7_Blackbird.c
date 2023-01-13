@@ -1959,7 +1959,7 @@ int su2_writeCongfig_Blackbird(void *aimInfo, capsValue *aimInputs,
     fprintf(fp,"%% ------------------------- SCREEN/HISTORY VOLUME OUTPUT --------------------------%% \n");
     fprintf(fp,"%% \n");
     fprintf(fp,"%% Screen output fields (use 'SU2_CFD -d <config_file>' to view list of available fields) \n");
-    fprintf(fp,"SCREEN_OUTPUT= (TIME_ITER, OUTER_ITER, INNER_ITER, CUR_TIME, TIME_STEP, WALL_TIME, RMS_DENSITY, RMS_MOMENTUM-X, RMS_MOMENTUM-Y, RMS_ENERGY, EFFICIENCY) \n");
+    fprintf(fp,"SCREEN_OUTPUT= (TIME_ITER, OUTER_ITER, INNER_ITER, CUR_TIME, TIME_STEP, WALL_TIME, RMS_DENSITY, RMS_MOMENTUM-X, RMS_MOMENTUM-Y, RMS_ENERGY, RMS_ADJ_DENSITY, EFFICIENCY) \n");
     fprintf(fp,"%% \n");
     fprintf(fp,"%% History output groups (use 'SU2_CFD -d <config_file>' to view list of available fields) \n");
     fprintf(fp,"HISTORY_OUTPUT= (ITER, TIME_DOMAIN, WALL_TIME, RMS_RES, AERO_COEFF) \n");
@@ -2034,7 +2034,11 @@ int su2_writeCongfig_Blackbird(void *aimInfo, capsValue *aimInputs,
             aimInputs[Output_Format-1].vals.string);
     fprintf(fp,"%% \n");
     fprintf(fp,"%% Output file convergence history (w/o extension) \n");
-    fprintf(fp,"%% CONV_FILENAME= history \n");
+    if (aimInputs[Design_Sensitivity-1].vals.integer == (int)true) {
+        fprintf(fp,"CONV_FILENAME= history_%s \n", aimInputs[Proj_Name-1].vals.string);
+    } else {
+        fprintf(fp,"%% CONV_FILENAME= history \n");
+    }
     fprintf(fp,"%% \n");
     fprintf(fp,"%% Output file with the forces breakdown \n");
     fprintf(fp,"BREAKDOWN_FILENAME= forces_breakdown_%s.dat\n", aimInputs[Proj_Name-1].vals.string);

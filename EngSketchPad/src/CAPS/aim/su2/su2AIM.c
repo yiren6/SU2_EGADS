@@ -1644,8 +1644,12 @@ int aimPostAnalysis(/*@unused@*/ void *instStore, /*@unused@*/ void *aimInfo,
                 status = CAPS_IOERR;
                 goto cleanup;
               }
+                /*added printf debug*/
 
-              functional_dvar += functional_xyz[i][3*j+0]*dxyz[ibody][3*k + 0]  // dx/dGeomIn
+                printf("GeomSens:%f,%f,%f\n", dxyz[ibody][3*k + 0],dxyz[ibody][3*k + 1],dxyz[ibody][3*k + 2]);
+                /*end of printf debug* Nov 15 YS*/
+
+                functional_dvar += functional_xyz[i][3*j+0]*dxyz[ibody][3*k + 0]  // dx/dGeomIn
                                + functional_xyz[i][3*j+1]*dxyz[ibody][3*k + 1]  // dy/dGeomIn
                                + functional_xyz[i][3*j+2]*dxyz[ibody][3*k + 2]; // dz/dGeomIn
             }

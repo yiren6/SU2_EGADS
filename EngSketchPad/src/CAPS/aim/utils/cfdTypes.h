@@ -23,7 +23,7 @@ typedef struct {
     // Wall specific properties
     int    wallTemperatureFlag;  // Temperature flag
     double wallTemperature;      // Temperature value -1 = adiabatic ; >0 = isothermal
-    double wallHeatFlux;         // Wall heat flux. to use Temperature flag should be true and wallTemperature < 0
+    double wallHeatFlux;         // Wall heat flux.to use Temperature flag should be true and wallTemperature < 0
 
     // Symmetry plane
     int symmetryPlane;        // Symmetry flag / plane

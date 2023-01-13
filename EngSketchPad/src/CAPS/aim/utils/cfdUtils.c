@@ -264,7 +264,6 @@ int cfd_getBoundaryCondition(void *aimInfo,
                 AIM_STATUS(aimInfo, status);
                 AIM_FREE(keyValue);
             }
-
             // Stagnation quantities
 
             /*! \page cfdBoundaryConditions
