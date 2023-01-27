@@ -2212,9 +2212,9 @@ int su2_writeCongfig_Blackbird(void *aimInfo, capsValue *aimInputs,
         }
     }
     fprintf(fp,"\n");
-    if (aimInputs[Design_Sensitivity-1].vals.integer == (int)true) {
-        fprintf(fp,"KIND_DISC_ADJ = RESIDUALS\n");
-    }
+//    if (aimInputs[Design_Sensitivity-1].vals.integer == (int)true) {
+//        fprintf(fp,"KIND_DISC_ADJ = RESIDUALS\n");
+//    }
     fprintf(fp,"%% ---------------- End of SU2 Configuration File -------------------%%\n");
 
     status = CAPS_SUCCESS;
