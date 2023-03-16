@@ -1,0 +1,8 @@
+7 0
+width
+length
+height
+crosCircDiam
+crosRampLenX
+crosFlatLenX
+crosTailHigY
