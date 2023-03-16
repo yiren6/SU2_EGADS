@@ -1,0 +1,117 @@
+# ESP Sensitivity unit test case 
+# Test for laminar flow over a naca 4 dig
+# dL/dthick 
+# Yiren Shen @Sep 2022
+
+
+# Global attribute 
+ATTRIBUTE capsIntent $CFD
+ATTRIBUTE capsAIM $su2AIM;egadsTessAIM;pointwiseAIM;tetgenAIM
+ATTRIBUTE capsMeshLength 0.1
+
+
+
+DESPMTR   thickr    0.12      # thickness ratio at root
+DESPMTR   camberr   0.06      # camber    ratio at root
+DESPMTR   xroot     0.00      # xloc at root LE
+DESPMTR   yroot     0.00      # yloc at root LE
+DESPMTR   zroot     0.00      # zloc at root LE
+DESPMTR   SHARP_TE   0
+DESPMTR   chordr    1.00
+DESPMTR   span      1.00      
+# Define length units of the geometry
+ATTRIBUTE capsLength     $m
+
+# root
+UDPRIM    naca      thickness  thickr   camber  camberr   sharpte  SHARP_TE
+SCALE     chordr
+ROTATEX   90  0  0
+EXTRUDE   0  span  0
+STORE wing 
+
+# build box 
+
+BOX -3 -0.5 -2 10 2 4 
+STORE box 
+
+RESTORE box 
+RESTORE wing 
+SUBTRACT 
+
+
+# Rename 
+SELECT face 1 
+ATTRIBUTE tag      			$inlet
+ATTRIBUTE capsAIM  			$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  		$inlet
+ATTRIBUTE capsMesh			$inlet
+ATTRIBUTE capsMeshLength 	0.2
+ATTRIBUTE _name				$inlet
+ATTRIBUTE _color			$green
+
+
+SELECT face 	3
+
+ATTRIBUTE tag      			$top
+ATTRIBUTE capsAIM  			$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  			$top
+ATTRIBUTE capsMesh			$top
+ATTRIBUTE capsMeshLength 	0.2
+ATTRIBUTE _name				$top
+ATTRIBUTE _color			$yellow
+
+SELECT face  	5
+ATTRIBUTE tag      			$bottom
+ATTRIBUTE capsAIM  			$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  			$bottom
+ATTRIBUTE capsMesh			$bottom
+ATTRIBUTE capsMeshLength 	0.2
+ATTRIBUTE _name				$bottom
+ATTRIBUTE _color			$yellow
+
+SELECT face 	2
+
+ATTRIBUTE tag      			$siden
+ATTRIBUTE capsAIM  			$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  			$siden
+ATTRIBUTE capsMesh			$siden
+ATTRIBUTE capsMeshLength 		0.2
+ATTRIBUTE _name				$siden
+ATTRIBUTE _color			$yellow
+
+SELECT face  	4
+ATTRIBUTE tag      			$sidep
+ATTRIBUTE capsAIM  			$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  			$sidep
+ATTRIBUTE capsMesh			$sidep
+ATTRIBUTE capsMeshLength 		0.2
+ATTRIBUTE _name			$sidep
+ATTRIBUTE _color			$yellow
+
+
+SELECT face 	6
+ATTRIBUTE tag      			$outlet
+ATTRIBUTE capsAIM  			$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  		$outlet
+ATTRIBUTE capsMesh			$outlet
+ATTRIBUTE capsMeshLength 	0.2
+ATTRIBUTE _name				$outlet
+ATTRIBUTE _color			$red
+
+
+
+SELECT face 		7
+SELECT add 		8
+SELECT add 		9
+SELECT add 		10
+SELECT add 		11
+ATTRIBUTE tag      			$wing
+ATTRIBUTE capsAIM  			$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  		$wing
+ATTRIBUTE capsMesh			$wing
+ATTRIBUTE capsMeshLength 	0.02
+ATTRIBUTE _name				$wing
+ATTRIBUTE _color			$blue
+
+
+

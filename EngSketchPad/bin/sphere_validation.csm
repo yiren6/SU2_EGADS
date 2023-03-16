@@ -1,0 +1,71 @@
+DESPMTR bodyDiam  1
+DESPMTR fieldDiam  10
+
+
+# global attribute 
+attribute capsIntent $CFD
+attribute capsAIM $fun3dAIM;su2AIM;egadsTessAIM;pointwiseAIM;delaundoAIM;tetgenAIM #CFD Analysis
+attribute capsMeshLength 0.5
+
+sphere 0 0 0 fieldDiam
+ROTATEZ 90 0 0
+STORE bodyField
+
+
+sphere 0 0 0 bodyDiam 
+STORE bodySphere
+
+
+RESTORE bodyField
+RESTORE bodySphere
+SUBTRACT 
+
+
+SELECT face 1
+ATTRIBUTE tag    $outlet
+ATTRIBUTE capsAIM   $pointwiseAIM;su2AIM;delaundoAIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  $outlet
+ATTRIBUTE capsMesh   $outlet
+ATTRIBUTE capsMeshLength 2
+ATTRIBUTE _name   $outlet
+ATTRIBUTE _color   $blue
+
+
+SELECT face 2
+ATTRIBUTE tag    $inlet
+ATTRIBUTE capsAIM   $pointwiseAIM;su2AIM;delaundoAIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup  $inlet
+ATTRIBUTE capsMesh   $inlet
+ATTRIBUTE capsMeshLength 2
+ATTRIBUTE _name			$inlet
+ATTRIBUTE _color 		$red
+
+
+
+SELECT face 3 
+ATTRIBUTE tag 			$body
+ATTRIBUTE capsAIM 		$pointwiseAIM;su2AIM;delaundoAIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup 	$body
+ATTRIBUTE capsMesh 		$body
+ATTRIBUTE capsMeshLength 0.1
+ATTRIBUTE _name			$body
+ATTRIBUTE _color 		$green
+SELECT face 4
+ATTRIBUTE tag 			$body
+ATTRIBUTE capsAIM 		$pointwiseAIM;su2AIM;delaundoAIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup 	$body
+ATTRIBUTE capsMesh 		$body
+ATTRIBUTE capsMeshLength 0.1
+ATTRIBUTE _name			$body
+ATTRIBUTE _color 		$green
+
+SELECT body
+ATTRIBUTE tag 			$flowfield
+ATTRIBUTE _color 		$yellow
+ATTRIBUTE capsAIM 		$pointwiseAIM;su2AIM;delaundoAIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup 	$flowfield
+ATTRIBUTE capsMesh  	$flowfield
+ATTRIBUTE _name			$flowfield
+
+
+

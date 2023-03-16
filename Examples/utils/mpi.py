@@ -1,8 +1,7 @@
 """Module. Implements and configures the interface to MPI.
 
 """
-import functools
-import numpy as np
+
 
 try:
     from mpi4py import MPI

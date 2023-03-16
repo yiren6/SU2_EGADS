@@ -1,0 +1,84 @@
+# ESP Sensitivity unit test case
+# Test for laminar flow over a wedge (drag based)
+# dFy/dh
+# Yiren Shen @Sep 2022
+
+# Design parameter
+DESPMTR  wheight     1   height of wedge
+DESPMTR  w      1   width of channel
+DESPMTR  l      2   length of channel
+DESPMTR  h    5  height of channel
+DESPMTR  wbase  1 base of the wedge x start
+
+# Global attribute
+ATTRIBUTE capsIntent $CFD
+ATTRIBUTE capsAIM $su2AIM;egadsTessAIM;pointwiseAIM;tetgenAIM
+ATTRIBUTE capsMeshLength 0.2
+
+
+
+# Build the channel
+BOX  0 0 0 l h w
+STORE bodyField
+
+# Build the wedge
+UDPRIM poly points "wbase; 0; 0;\
+         l; 0; 0;\
+         l; wheight; 0;"
+EXTRUDE 0 0 w
+STORE bodyWedge
+
+# Subtract wedge from channel
+RESTORE bodyField
+RESTORE bodyWedge
+SUBTRACT
+
+#Rename
+select face 1
+ATTRIBUTE tag		$inlet
+ATTRIBUTE capsAIM	$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup	$inlet
+ATTRIBUTE capsMesh	$inlet
+ATTRIBUTE capsMeshLength 0.2
+ATTRIBUTE _name	$inlet
+ATTRIBUTE _color	$green
+
+select face	2
+SELECT add	3
+SELECT add	4
+SELECT add	5
+ATTRIBUTE tag		$walls
+ATTRIBUTE capsAIM	$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup	$walls
+ATTRIBUTE capsMesh	$walls
+ATTRIBUTE capsMeshLength	0.2
+ATTRIBUTE _name	$walls
+ATTRIBUTE _color	$blue
+
+SELECT face 6
+ATTRIBUTE tag			$wedge
+ATTRIBUTE capsAIM		$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup		$wedge
+ATTRIBUTE capsMesh		$wedge
+ATTRIBUTE capsMeshLength	0.2
+ATTRIBUTE _name		$wedge
+ATTRIBUTE _color		$red
+
+SELECT face 7
+ATTRIBUTE tag			$outlet
+ATTRIBUTE capsAIM		$pointwiseAIM;su2AIM;tetgenAIM;egadsTessAIM
+ATTRIBUTE capsGroup		$outlet
+ATTRIBUTE capsMesh		$outlet
+ATTRIBUTE capsMeshLength	0.2
+ATTRIBUTE _name		$outlet
+ATTRIBUTE _color		$yellow
+
+
+
+
+
+
+
+
+
+

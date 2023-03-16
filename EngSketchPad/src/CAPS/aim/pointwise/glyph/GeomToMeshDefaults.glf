@@ -19,9 +19,9 @@
 #
 
 # Connector level
-set conParams(InitDim)                          11; # Initial connector dimension
+set conParams(InitDim)                          21; # Initial connector dimension 11
 set conParams(MaxDim)                         1024; # Maximum connector dimension
-set conParams(MinDim)                            4; # Minimum connector dimension
+set conParams(MinDim)                            11; # Minimum connector dimension 4
 set conParams(TurnAngle)                       0.0; # Maximum turning angle on connectors for dimensioning (0 - not used)
 set conParams(Deviation)                       0.0; # Maximum deviation on connectors for dimensioning (0 - not used)
 set conParams(SplitAngle)                      0.0; # Turning angle on connectors to split (0 - not used)
