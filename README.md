@@ -1,3 +1,4 @@
+# CAPS+SU2 demo
  ESP: The Engineering Sketch Pad
  Rev 1.21 -- July 2022
 
@@ -26,7 +27,7 @@
 5. Environment Variables
 	The following environment variables needs to be defined in ~/.bashrc or other bash profile files and sourced prior to running any scripts.
 	 
-# CAPS
+### CAPS
 
  - ESP_ARCH 		
  - ESP_ROOT 		
@@ -35,7 +36,7 @@
  - CASREV
 ^ these environment variables will be generated during ESP installation
 
-# PYTHON
+### PYTHON
 - PYTHONINC
 - PYTHONLIB
 ^ these enviroment variables, you need to set during EGADS installation
@@ -43,7 +44,7 @@
 - PYTHONPATH
 ^ make sure you add SU2 and EGADS PATH to system $PATH and $PYTHONPATH
 
-# PATH
+### PATH
 - CAPS_PATH
 
 - PW_HOME
