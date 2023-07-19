@@ -1,5 +1,8 @@
 # CAPS+SU2 demo
  ESP: The Engineering Sketch Pad
+ See ESP license: https://acdl.mit.edu/ESP/ESPreadme.txt
+ SU2: SU2 v7.5.1 Blackbird
+ See SU2 license: https://su2code.github.io/
  Rev 1.21 -- July 2022
 
 1. Distribution layout
